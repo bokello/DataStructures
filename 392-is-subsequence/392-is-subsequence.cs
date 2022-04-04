@@ -7,21 +7,16 @@ public class Solution {
         int left = 0;
         int right = 0;
         
-        while(right < tLength)
-        {
-            if(left >= sLength)
-               return true;
-                
+        while(left < sLength && right < tLength)
+        {       
             if(t[right] == s[left])
                 left++;            
             
             right++;
         }
         
-        if(left >= sLength)
-               return true;
         
-        return false;
+        return left == sLength;
         
     }
 }
