@@ -1,30 +1,41 @@
 public class Solution {
     public int CalPoints(string[] ops) {
-        
+     
+        int score = 0;
         Stack<int> stk = new Stack<int>();
-        int ans = 0;
         
-        foreach(string rule in ops)
-        {            
-            if(rule.Equals("+"))
+        foreach(string str in ops)
+        {
+            
+            if(str.Equals("+"))
             {
-               int top = stk.Pop();
-               int newTop = top + stk.Peek();
-               stk.Push(top);
-               stk.Push(newTop);
+                int top = stk.Pop();
+                int newTop = stk.Peek() + top;
+                
+                stk.Push(top);
+                stk.Push(newTop);                
+                
             }
-            else if(rule.Equals("C"))
+            else if(str.Equals("D"))
+            {
+                stk.Push(2 * stk.Peek());                
+            }
+            else if(str.Equals("C"))
+            {
                 stk.Pop();
-            else if(rule.Equals("D"))
-                stk.Push(2 * stk.Peek());
+            }
             else
-                stk.Push(int.Parse(rule));            
+            {
+                stk.Push(int.Parse(str));
+            }
+            
         }
         
-        while(stk.Count != 0)
-            ans += stk.Pop();
+        while(stk.Count !=0)
+            score += stk.Pop();
         
-        return ans;
+        
+        return score;
         
     }
 }
