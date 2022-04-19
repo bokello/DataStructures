@@ -14,7 +14,7 @@
 public class Solution {
     public int KthSmallest(TreeNode root, int k) {
          List<int> nums = inorder(root, new List<int>());
-            return nums.ToArray()[k-1];
+            return nums[k-1];
     }
     
     
