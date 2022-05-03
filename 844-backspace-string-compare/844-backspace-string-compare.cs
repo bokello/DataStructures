@@ -13,14 +13,13 @@ public class Solution {
     public string buildString(string str)
     {
         string result = string.Empty;
-        char[] arr = str.ToCharArray();
         Stack<char> stk = new Stack<Char>();
         
-        for(int i=0;i < arr.Length; i++)
+        for(int i=0;i < str.Length; i++)
         {
             
-            if(arr[i] != '#')
-              stk.Push(arr[i]);
+            if(str[i] != '#')
+              stk.Push(str[i]);
             else if(stk.Count !=0)                   
               stk.Pop();      
         }
@@ -29,7 +28,6 @@ public class Solution {
             result += stk.Pop();
         
         return result;
-        
         
     }
 }
