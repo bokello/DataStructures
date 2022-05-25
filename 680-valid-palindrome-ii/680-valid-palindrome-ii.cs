@@ -1,30 +1,35 @@
 public class Solution {
       public bool ValidPalindrome(string s) {
-         
-         int i = 0;
-         int j = s.Length - 1;
-
-         while(i < j)
-         {
-            if(s[i] != s[j])
-               return isPalindrome(s,i + 1 , j) || isPalindrome(s,i,j-1);
-
-               i++;
-               j--;
-         }
-
+       
+          int left = 0;
+          int right = s.Length - 1;
+          
+          while(left < right)
+          {
+             if(s[left] != s[right])
+                 return isPalindrome(s,left + 1,right) || isPalindrome(s,left,right - 1);
+              
+              left++;
+              right--;
+          }           
+          
           return true;
-        }
-
-        public bool isPalindrome(string s , int i, int j)
-        {
-            while( i < j){
-
-               if(s[i++] != s[j--])
+      }
+    
+      private bool isPalindrome(string s, int left, int right)
+      {
+          
+          while(left < right)
+          {
+              if(s[left] != s[right])
                   return false;
-            }
-
-            return true;
-        }
+              
+              left++;
+              right--;
+          }
+          
+          return true;
+          
+      }
 
 }
