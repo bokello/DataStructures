@@ -1,8 +1,6 @@
 public class Solution {
     public int SearchInsert(int[] nums, int target) {
-        
-        int pos = 0;
-        
+                        
         int left = 0;
         int right = nums.Length - 1;
         
@@ -20,7 +18,6 @@ public class Solution {
         }
                         
         return left;
-        
-        
+                
     }
 }
