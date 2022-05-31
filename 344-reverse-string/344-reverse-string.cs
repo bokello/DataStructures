@@ -9,10 +9,10 @@ public class Solution {
             while (left < right)
             {
                 char temp = s[left];
-                s[left] = s[right];
-                s[right] = temp;
-                left++;
-                right--;
+                s[left++] = s[right];
+                s[right--] = temp;
+                //left++;
+                //right--;
             }
             
 
