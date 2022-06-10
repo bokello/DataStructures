@@ -1,28 +1,30 @@
 public class Solution {
     public bool IsValid(string s) {
         
-          Dictionary<char,char> mappings = new Dictionary<char, char>();
-          mappings.Add(')','(');
-          mappings.Add('}','{');
-          mappings.Add(']','[');
-        
+          Dictionary<char,char> map = new Dictionary<char,char>();
+          map.Add(')','(');
+          map.Add('}','{');
+          map.Add(']','[');
         
           Stack<char> stack = new Stack<char>();
-          char[] word = s.ToCharArray();
-                      
-          foreach(char c in word)
-          {              
-              if(mappings.ContainsKey(c))
-              {                   
-                 char topElement = stack.Count == 0 ? '#' : stack.Pop();                  
-                 if (topElement != mappings[c]) 
-                    return false;                  
-              }              
+        
+          for(int i=0;i < s.Length; i++)
+          {
+              if(map.ContainsKey(s[i]))
+              {
+                  char top = stack.Count == 0 ? '#' : stack.Pop();
+                  
+                  if(top != map[s[i]])
+                      return false;
+              }
               else
-                 stack.Push(c);
-           }
-                      
-            return !stack.Any();     
+              {
+                  stack.Push(s[i]);
+              }
+              
+          }
+        
+          return !stack.Any();
         
     }
 }
