@@ -1,7 +1,7 @@
 class Solution {
     public int findKthLargest(int[] nums, int k) {
         
-           // init heap 'the smallest element first'
+        // init heap 'the smallest element first'
         PriorityQueue<Integer> heap =
             new PriorityQueue<Integer>((n1, n2) -> n1 - n2);
 
